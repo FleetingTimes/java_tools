@@ -55,6 +55,43 @@
 - 多模块工程：根目录执行 `clean install` 会按模块顺序构建并安装；上游模块先构建，保证下游解析到最新坐标。
 - 本地仓库路径（Windows）：`C:\Users\<用户名>\.m2\repository`
 
+## mvn clean package 与 mvn clean install 的区别
+- 执行阶段：
+  - `mvn clean package`：执行到 `package` 为止（不包含 `verify/install`）。
+  - `mvn clean install`：执行到 `install`，包含 `verify` 与所有中间阶段。
+- 产物去向：
+  - `package`：仅在当前工程 `target/` 目录生成 Jar/War。
+  - `install`：除生成 `target/` 产物外，还将产物安装到本地仓库 `~/.m2/repository`（Windows：`C:\Users\<用户名>\.m2\repository`），供其他项目通过坐标依赖。
+- 测试与验证：
+  - 两者均会执行测试（除非 `-DskipTests=true` 或 `-Dmaven.test.skip=true`）。
+  - 若绑定了 Failsafe 的集成测试在 `verify`，则只有 `install` 会跑并验证集成测试结果。
+- 适用场景：
+  - 仅生成分发包用于本项目自测/交付 → 用 `clean package`。
+  - 需要让其他项目通过坐标依赖当前产物 → 用 `clean install`。
+  - 多模块聚合构建并希望各模块产物进入本地仓库 → 用 `clean install`。
+- 常用加速参数：
+  - 跳过测试但仍编译测试源码：`-DskipTests=true`
+  - 完全跳过测试编译与执行：`-Dmaven.test.skip=true`
+  - 并行：`mvn -T 1C clean package`
+  - 离线：`mvn -o clean package`
+
+## 发布到 GitHub Releases 的注意事项
+- 使用稳定版本号：
+  - 在 `pom.xml` 设置非 SNAPSHOT 版本（如 `1.0.0`），避免快照命名用于发布。
+- 构建产物：
+  - 执行 `mvn -q -DskipTests=true clean package`，产物位于 `target/<artifactId>-<version>.jar`。
+- 创建 Release：
+  - 网页方式：在 GitHub 仓库的 Releases 页面创建版本标签与说明，上传 Jar 文件。
+  - CLI 示例：
+    - 创建：`gh release create v1.0.0 -t "v1.0.0" -n "变更说明..."`
+    - 上传：`gh release upload v1.0.0 target/<artifactId>-<version>.jar`
+- 命名与校验：
+  - 建议在 Release 说明中注明构建命令、JDK 版本与依赖最小要求。
+  - 可选上传校验文件（如 `SHA256SUMS`），提升可验证性。
+- 与 Maven 仓库发布的区别：
+  - GitHub Releases 仅托管二进制包，不需要 `mvn deploy`。
+  - 若需发布到 Maven 仓库（Nexus/Artifactory/Maven Central），需配置 `distributionManagement` 并使用 `mvn clean deploy`，可能还需签名与校验（sources/javadoc）。
+
 ## 示例
 - 分页与响应
 ```java

@@ -3,7 +3,11 @@
 
   <groupId>com.trae</groupId>
   <artifactId>webtools</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <!-- Releases 通常使用非 SNAPSHOT 版本，
+      将 pom.xml 的 version 改为稳定版本（如 1.0.0 ），
+      再执行打包 
+        通常 为  1.0.0-SNAPSHOT  。 稳定版即 1.0.0 -->
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>Trae WebTools</name>
