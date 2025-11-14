@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>WebTools 索引</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;line-height:1.6;margin:24px;color:#222}
+    h1{font-size:22px;margin:0 0 16px}
+    h2{font-size:18px;margin:24px 0 8px;border-bottom:1px solid #eee;padding-bottom:4px}
+    ul{margin:8px 0 0 20px;padding:0}
+    li{margin:6px 0}
+    .desc{color:#666;font-size:13px}
+    .search{margin:0 0 16px}
+    .search input{width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:6px}
+    .file{display:block}
+  </style>
+</head>
+<body>
+  <h1>WebTools 索引</h1>
+  <div class="search"><input id="q" placeholder="输入关键字筛选（文件名/描述/类别）" /></div>
+
+  <h2>Web / HTTP</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/WebUtils.java">WebUtils</a> <span class="desc">分页、响应包装、校验、脱敏、MIME/CORS/IP、ETag、版本比较</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/WebExtraUtils.java">WebExtraUtils</a> <span class="desc">内容协商、弱 ETag、HTTPS 判定、分页链接、Ajax/语言、UA、Range、同源/CORS、TraceId</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/HttpUtils.java">HttpUtils</a> <span class="desc">查询参数、Cookie、URL 编解码与路径拼接</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/HttpHeaderPlusUtils.java">HttpHeaderPlusUtils</a> <span class="desc">头名称规范化、合并、增删改查</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/HttpRangePlusUtils.java">HttpRangePlusUtils</a> <span class="desc">Content-Range 构造与单段 Range 校验/规范化</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/HttpStatusUtils.java">HttpStatusUtils</a> <span class="desc">原因短语与分类、状态行构造/解析</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/ETagPlusUtils.java">ETagPlusUtils</a> <span class="desc">强/弱 ETag 生成、条件请求判断与解析</span></li>
+  </ul>
+
+  <h2>Security</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/SecurityUtils.java">SecurityUtils</a> <span class="desc">摘要/HMAC/Base64/Base64URL、JWT/CSRF、Cookie 值、PBKDF2、Bcrypt</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/UUIDPlusUtils.java">UUIDPlusUtils</a> <span class="desc">Base64URL 短编码与 UUID 字节互转</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/Base32Utils.java">Base32Utils</a> <span class="desc">RFC4648 Base32 编解码</span></li>
+  </ul>
+
+  <h2>Text / Regex</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/StringUtils.java">StringUtils</a> <span class="desc">字符串增强</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/StringPlusUtils.java">StringPlusUtils</a> <span class="desc">字符串增强（进阶）</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/StringMatchUtils.java">StringMatchUtils</a> <span class="desc">命名风格判断、近似相等、包含/前后缀、Unicode/ASCII、正则辅助</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/TextMetricsUtils.java">TextMetricsUtils</a> <span class="desc">编辑距离、相似度、LCS/最长子串、分词/规范化</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/TemplateUtils.java">TemplateUtils</a> <span class="desc">{{key}} 模板渲染、严格模式、文件读写</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/RegexUtils.java">RegexUtils</a> <span class="desc">正则封装</span></li>
+  </ul>
+
+  <h2>JSON / XML</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/JsonPropsUtils.java">JsonPropsUtils</a> <span class="desc">平面 JSON/Properties 互转</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/JsonDiffUtils.java">JsonDiffUtils</a> <span class="desc">平面 Map Diff/Apply</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/XMLUtils.java">XMLUtils</a> <span class="desc">解析/序列化/节点操作</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/XmlXPathUtils.java">XmlXPathUtils</a> <span class="desc">XPath 评估与节点操作</span></li>
+  </ul>
+
+  <h2>IO / Path / Stream / Zip</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/IOUtils.java">IOUtils</a> <span class="desc">文件与流读写、路径规范化、压缩/解压、资源读取</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/FilePlusUtils.java">FilePlusUtils</a> <span class="desc">文件范围读写、原子写入等</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/FileTreeUtils.java">FileTreeUtils</a> <span class="desc">文件树操作与遍历</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/StreamPlusUtils.java">StreamPlusUtils</a> <span class="desc">流复制、读写字符串、GZIP 压缩/解压</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/ZipUtils.java">ZipUtils</a> <span class="desc">压缩/解压/条目操作</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/PathPlusUtils.java">PathPlusUtils</a> <span class="desc">路径与文件名增强</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/MimeMagicUtils.java">MimeMagicUtils</a> <span class="desc">魔数检测（常见类型）</span></li>
+  </ul>
+
+  <h2>Time / Date</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/DateTimeUtils.java">DateTimeUtils</a> <span class="desc">时间/时长操作</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/TimePlusUtils.java">TimePlusUtils</a> <span class="desc">时长解析/格式</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/DateRangeUtils.java">DateRangeUtils</a> <span class="desc">日期范围工具</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/RfcDateUtils.java">RfcDateUtils</a> <span class="desc">RFC1123/850/asctime</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/Stopwatch.java">Stopwatch</a> <span class="desc">耗时测量（单调时钟）</span></li>
+  </ul>
+
+  <h2>Collections / Maps / Numbers</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/CollectionUtils.java">CollectionUtils</a> <span class="desc">集合增强</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/CollectionPlusUtils.java">CollectionPlusUtils</a> <span class="desc">集合增强（进阶）</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/MapUtils.java">MapUtils</a> <span class="desc">Map 增强</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/MapPlusUtils.java">MapPlusUtils</a> <span class="desc">Map 增强（进阶）</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/NumberUtils.java">NumberUtils</a> <span class="desc">钳制/舍入/格式化/范围判断/随机/统计</span></li>
+  </ul>
+
+  <h2>Concurrency / Retry / Cache</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/ConcurrencyUtils.java">ConcurrencyUtils</a> <span class="desc">睡眠、重试、超时执行、线程池</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/RetryPlusUtils.java">RetryPlusUtils</a> <span class="desc">重试策略</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/BackoffUtils.java">BackoffUtils</a> <span class="desc">回退策略</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/CacheUtils.java">CacheUtils</a> <span class="desc">速率限制器、LRU 缓存工厂</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/CacheAdvancedUtils.java">CacheAdvancedUtils</a> <span class="desc">TTL/LFU 缓存</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/LruCache.java">LruCache</a> <span class="desc">最近最少使用缓存</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/RateLimiter.java">RateLimiter</a> <span class="desc">令牌桶限流</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/SchedulerUtils.java">SchedulerUtils</a> <span class="desc">调度器与固定速率/延迟任务</span></li>
+  </ul>
+
+  <h2>Net / URL</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/UrlUtils.java">UrlUtils</a> <span class="desc">解析/构造、路径与查询参数、绝对/相对判断</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/NetUtils.java">NetUtils</a> <span class="desc">IPv4/CIDR 解析、网络/广播/主机数、子网判断</span></li>
+  </ul>
+
+  <h2>Models / Responses</h2>
+  <ul>
+    <li><a class="file" href="src/main/java/com/trae/webtools/Page.java">Page</a> <span class="desc">分页结果模型</span></li>
+    <li><a class="file" href="src/main/java/com/trae/webtools/ApiResponse.java">ApiResponse</a> <span class="desc">API 响应模型</span></li>
+  </ul>
+
+  <script>
+    const q = document.getElementById('q');
+    q.addEventListener('input', () => {
+      const t = q.value.toLowerCase();
+      document.querySelectorAll('li').forEach(li => {
+        const s = li.textContent.toLowerCase();
+        li.style.display = s.includes(t) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
