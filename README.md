@@ -92,6 +92,24 @@
   - GitHub Releases 仅托管二进制包，不需要 `mvn deploy`。
   - 若需发布到 Maven 仓库（Nexus/Artifactory/Maven Central），需配置 `distributionManagement` 并使用 `mvn clean deploy`，可能还需签名与校验（sources/javadoc）。
 
+## 前端：`npm run dev` 与 `npm run build`（可选）
+- 适用范围：使用前端工具链（如 `Vite`、`Webpack`、`Next.js`）的项目；与本 Java 工程独立，但经常协同。
+- `npm run dev`：
+  - 启动开发服务器，支持热更新（HMR/Hot Reload）、源映射、未压缩代码。
+  - 常见行为：本地代理、快速增量编译、错误提示友好；不适合作为生产环境。
+  - 示例：`npm run dev`（Vite 默认端口 5173，可 `--host` 暴露到局域网）。
+- `npm run build`：
+  - 生成生产环境构建产物，进行打包、压缩、代码分割、哈希指纹（缓存友好）。
+  - 常见输出目录：`dist/`（Vite/多数 SPA）、`.next/`（Next.js）、`build/`（部分脚手架）。
+  - 示例：`npm run build`；Vite 可配合 `npm run preview` 做本地预览。
+- 区别与选择：
+  - 开发联调与快速迭代 → 用 `npm run dev`。
+  - 部署/发布到静态服务器或反向代理（Nginx/CDN） → 用 `npm run build` 并上传构建目录。
+  - 环境变量：开发与生产通常使用不同 `.env` 文件（如 `.env.development` vs `.env.production`）。
+- 与后端协同：
+  - 纯前后端分离：前端 `dist/` 直接交付到静态服务，后端仅提供 API。
+  - 打包进后端：可将 `dist/` 置于后端资源目录（如 `src/main/resources/static/`），由 Java 服务统一对外提供。
+
 ## 示例
 - 分页与响应
 ```java
